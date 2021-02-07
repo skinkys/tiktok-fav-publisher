@@ -48,7 +48,7 @@ func main() {
 }
 
 func checkNewVideos() {
-	likes, err := getLikedVideos(cfg.TikTokSecUserID, 10)
+	likes, err := getLikedVideos(cfg.TikTokSecUserID, 48)
 	if err != nil {
 		log.Println("Likes", err)
 		return
@@ -63,7 +63,7 @@ func checkNewVideos() {
 
 		menu := &tb.ReplyMarkup{}
 		menu.Inline(
-			menu.Row(menu.URL("Оригинал", v.ShareURL)),
+			menu.Row(menu.URL("TikTok", v.ShareURL)),
 		)
 
 		_, err = tg.Send(tb.ChatID(cfg.ChannelID), &tb.Video{
